@@ -6,16 +6,7 @@ import CartItem from './CartItem';
 export default class Cart extends Component {
     constructor(props){
         super(props);
-        this.state = {
-           cartItems : props.items,
-        }
     }
-
-    // This has to be replaced later
-    componentWillReceiveProps(nextProps) {
-        this.setState({ cartItems: nextProps.items });  
-      }
-
 
     render() {
         return (
@@ -23,7 +14,7 @@ export default class Cart extends Component {
                 <h1>Shopping Cart</h1>
                 <ul>
                     {
-                        this.state.cartItems.map(cartItem => 
+                        this.props.items.map(cartItem => 
                              <CartItem key={cartItem.id}
                                        item={cartItem}
                                        removeItem={this.props.removeItem}/>)
@@ -31,7 +22,7 @@ export default class Cart extends Component {
                 </ul>
                 <Link to={{
                     pathname : '/order',
-                    items : this.state.cartItems,
+                    items : this.props.items,
                 }}>
                   <button>Preview order</button>
                 </Link> 

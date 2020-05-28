@@ -17,6 +17,14 @@ export default class OrderView extends Component {
         }
     }
 
+    calculatePrice = () => {
+        let price = 0;
+        this.state.orderItems.forEach((item)=> {
+            price += item.price * item.quantity;
+        });
+        return price
+    }
+
     render() {
 
         let orderItems;
@@ -33,6 +41,7 @@ export default class OrderView extends Component {
                 <ul>
                     {orderItems}
                 </ul>
+                <h1>FINAL PRICE: {this.calculatePrice()} E</h1>
                 <Link to='/'>
                     <button>Back to menu</button>
                 </Link>

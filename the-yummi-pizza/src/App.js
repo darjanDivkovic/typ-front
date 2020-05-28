@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './App.css';
+import nextId from "react-id-generator";
+
 
 import MenuItems from './components/menu/MenuItems';
 import Cart from './components/cart/Cart';
@@ -20,27 +22,34 @@ export default class App extends Component {
   }
 
   addToCart(item){
-    let prevStateItems = this.state.cartItems;
-    // Try to find it
-    let found = prevStateItems.includes(item);
     
-    if(found){
-      // If found 
-      let newCartItems = prevStateItems.map(cartItem => {
-        if(cartItem.id === item.id){
-          // Find it in array and change its quantity, add 1
-          cartItem.quantity++;
-          return cartItem;
-        }
-        else return cartItem;
-      });
-      this.setState({cartItems : newCartItems});
-    }
-    else {
-      // If not found
+    // Find 
+    let oldCartItems = this.state.cartItems;
+    let found = oldCartItems.some( items => items.id === item.id );
+    
+    // Not found
+    if(!found){
+      
       item.quantity = 1;
-      this.setState({cartItems : prevStateItems.concat(item)});
+      console.log(item);
+      let newCartItems = oldCartItems.concat(item);
+      this.setState({cartItems : newCartItems});
+
     }
+    else{
+
+      let newCartItems = oldCartItems.map( cartItem => {
+          if(cartItem.id === item.id){
+            cartItem.quantity++;
+            return cartItem;
+          }
+          else return cartItem;
+      });
+
+      console.log(newCartItems);
+      this.setState({oldCartItems : newCartItems});
+    }
+    
   }
 
   removeItemFromCart(item){

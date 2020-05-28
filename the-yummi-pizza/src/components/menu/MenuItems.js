@@ -10,17 +10,22 @@ export default class MenuItems extends Component {
         {
           id: 1,
           name: "Margherita",
-          price: "5.99 E",
+          price: 5.99,
         },
         {
           id: 2,
           name: "Quattro Stagioni",
-          price: "8.99 E",
+          price: 8.99,
         },
         {
           id: 3,
           name: "Napoletana",
-          price: "2.99 E",
+          price: 2.99,
+        },
+        {
+          id: 4,
+          name: "Coke",
+          price: 1.99,
         },
       ],
     };

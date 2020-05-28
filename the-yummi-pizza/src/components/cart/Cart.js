@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import CartItem from './CartItem';
 
@@ -27,6 +28,14 @@ export default class Cart extends Component {
                                        price={cartItem.price}/>)
                     }
                 </ul>
+                <Link to={{
+                    pathname : '/order',
+                    items : this.state.cartItems,
+                }}>
+                  <button>Preview order</button>
+                </Link> 
+                
+                
             </div>
         )
     }

@@ -34,9 +34,8 @@ export default class MenuItems extends Component {
           {
           this.state.menuItems.map((pizza) => (
             <MenuItem key={pizza.id}
-                      id={pizza.id}
-                      name={pizza.name}
-                      price={pizza.price}/>
+                      item={pizza}
+                      addToCart={this.props.addToCart}/>
           ))
           }
         </ul>

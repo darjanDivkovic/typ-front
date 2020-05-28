@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import OrderItem from './OrderItem';
 
@@ -17,7 +18,7 @@ export default class OrderView extends Component {
     }
 
     render() {
-        console.log(this.props.location.items);
+
         let orderItems;
         if(this.state.orderItems !== []){
             orderItems = this.state.orderItems.map(item => <OrderItem 
@@ -32,6 +33,9 @@ export default class OrderView extends Component {
                 <ul>
                     {orderItems}
                 </ul>
+                <Link to='/'>
+                    <button>Back to menu</button>
+                </Link>
             </div>
         )
     }

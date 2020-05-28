@@ -11,9 +11,11 @@ export default class Cart extends Component {
         }
     }
 
+    // This has to be replaced later
     componentWillReceiveProps(nextProps) {
         this.setState({ cartItems: nextProps.items });  
       }
+
 
     render() {
         return (
@@ -23,9 +25,8 @@ export default class Cart extends Component {
                     {
                         this.state.cartItems.map(cartItem => 
                              <CartItem key={cartItem.id}
-                                       id={cartItem.id}
-                                       name={cartItem.name}
-                                       price={cartItem.price}/>)
+                                       item={cartItem}
+                                       removeItem={this.props.removeItem}/>)
                     }
                 </ul>
                 <Link to={{
@@ -34,8 +35,6 @@ export default class Cart extends Component {
                 }}>
                   <button>Preview order</button>
                 </Link> 
-                
-                
             </div>
         )
     }

@@ -16,12 +16,42 @@ export default class App extends Component {
       cartItems : [],
     }
     this.addToCart = this.addToCart.bind(this);
+    this.removeItemFromCart = this.removeItemFromCart.bind(this);
   }
 
   addToCart(item){
     let prevStateItems = this.state.cartItems;
-    this.setState({cartItems : prevStateItems.concat(item)});
+    // Try to find it
+    let found = prevStateItems.includes(item);
+    
+    if(found){
+      // If found 
+      let newCartItems = prevStateItems.map(cartItem => {
+        if(cartItem.id === item.id){
+          // Find it in array and change its quantity, add 1
+          cartItem.quantity++;
+          return cartItem;
+        }
+        else return cartItem;
+      });
+      this.setState({cartItems : newCartItems});
+    }
+    else {
+      // If not found
+      item.quantity = 1;
+      this.setState({cartItems : prevStateItems.concat(item)});
+    }
   }
+
+  removeItemFromCart(item){
+    
+    let newCartItems = this.state.cartItems.filter((cartItem)=> {
+        if(cartItem.id === item.id) return false;
+        else return true;
+    });
+    this.setState({cartItems : newCartItems});
+
+}
 
   render() {
     return (
@@ -30,7 +60,8 @@ export default class App extends Component {
         <Router>
           <Route path='/' exact>
             <MenuItems addToCart={this.addToCart} />
-            <Cart items={this.state.cartItems}/>
+            <Cart items={this.state.cartItems}
+                  removeItem={this.removeItemFromCart}/>
           </Route>
           <Route path='/order' component={OrderPreview} />
         </Router>

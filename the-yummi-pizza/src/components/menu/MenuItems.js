@@ -16,7 +16,7 @@ export default class MenuItems extends Component {
         },
         {
           id: 2,
-          name: "Quattro Stagioni",
+          name: "Q Stagioni",
           price: 8.99,
           img_path : "https://i.ibb.co/T083QQN/tandori.png",
         },
@@ -52,7 +52,7 @@ export default class MenuItems extends Component {
         },
         {
           id: 8,
-          name: "Tedesca",
+          name: "Mimosa",
           price: 4.99,
           img_path : "https://i.ibb.co/MkNnZvf/pizza8.png",
         },
@@ -62,9 +62,13 @@ export default class MenuItems extends Component {
   }
 
   render() {
+    let style;
+    if(this.props.cartOpen) style = { marginLeft: '0px' }
+    else style = { marginLeft : '120px'};
+
     return (
-      <div className='menu-container'>
-        <ul>
+      <div className='menu-container' style={style}>
+        <ul className='menu-container-ul'>
           {
           this.state.menuItems.map((pizza) => (
             <MenuItem key={pizza.id}

@@ -9,10 +9,14 @@ export default class Cart extends Component {
     }
 
     render() {
+        let style;
+        if(this.props.cartOpen) style = { marginLeft: '10px' }
+        else style = { marginLeft : '400px'};
+
         return (
-            <div>
-                <h1>Shopping Cart</h1>
-                <ul>
+            <div className='cart-container' style={style}>
+                <h2>SHOPPING CART</h2>
+                <ul className='cart-items'>
                     {
                         this.props.items.map(cartItem => 
                              <CartItem key={cartItem.id}
@@ -24,7 +28,7 @@ export default class Cart extends Component {
                     pathname : '/order',
                     items : this.props.items,
                 }}>
-                  <button>Preview order</button>
+                  <button className='preview-order-btn'>Preview order</button>
                 </Link> 
             </div>
         )

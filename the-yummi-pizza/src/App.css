@@ -7,7 +7,7 @@
   background-color: #F8F8F8;
 }
 
-.logo-container {
+.header-container {
   margin-top: 100px;
   margin-left: 40px;
   border-radius: 50px;
@@ -17,6 +17,11 @@
   align-items: center;
   background-color: white;
   box-shadow: 0px 32px 49px -4px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+  display : flex;
+  align-items: center;
 }
 
 .logo {
@@ -34,16 +39,21 @@
   font-size: 40px;
 }
 
-.menu-container {
-  width: 80%;
-  margin-top: 80px;
-  margin-left: 130px;
+.cart-button {
+  margin-left: auto;
+  margin-right: 60px;
+}
 
+.menu-container {
+
+  width: 80%;
+  margin-top: 60px;
+  transition: 0.5s;
 }
 
 .menu-item {
 
-  padding: 20px 40px;
+  padding: 20px 30px;
   border-radius: 10px;
   margin-bottom: 40px;
   background-size: cover ;
@@ -55,6 +65,9 @@
   transform: scale(1.2);
 }
 
+.menu-item h3 {
+  text-align: right;
+}
 
 .menu-item-add-btn {
   margin-top: 50px;
@@ -75,14 +88,97 @@
   outline: none;
 }
 
-ul {
+.menu-container-ul {
   display: grid;
   grid-template-columns: repeat(4,1fr);
 }
 
-ul li {
+.menu-container-ul li {
   list-style: none;
   margin-right: 70px;
   width: 180px;
   height: 250px;
+}
+
+li {
+  list-style: none;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.cart-item {
+  margin-left: -40px;
+}
+
+.cart-item-des {
+  background-color: #F8F8F8;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.cart-item-des h2, h3 {
+  margin-left: 20px;
+}
+
+.remove-btn {
+  border-radius: 8px;
+  width: 80px;
+  height: 40px;
+  background-color: #d9534f;
+  color: white;
+  font-weight: bold;
+  border: none;
+  margin: -30px 10px 10px 150px;
+}
+
+.main-container {
+  display: flex;
+}
+
+.preview-order-btn {
+
+}
+
+.cart-container {
+  position: relative;
+  width: 300px;
+  max-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: scroll;
+  overflow-x: hidden;
+  margin-left: 400px;
+  transition: 1s;
+  margin-top: 50px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: -4px -1px 46px -14px rgba(0,0,0,0.45);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(216, 215, 215);
+  border: 1px solid grey;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

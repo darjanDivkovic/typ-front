@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import nextId from "react-id-generator";
 
-import Logo from './components/design/Logo';
+import Header from './components/design/Header';
 import MenuItems from './components/menu/MenuItems';
 import Cart from './components/cart/Cart';
 import OrderPreview from './components/order/OrderView';
@@ -16,9 +16,11 @@ export default class App extends Component {
     super(props);
     this.state = {
       cartItems : [],
+      cartOpen : false,
     }
     this.addToCart = this.addToCart.bind(this);
     this.removeItemFromCart = this.removeItemFromCart.bind(this);
+    this.toggleCart = this.toggleCart.bind(this);
   }
 
   addToCart(item){
@@ -59,18 +61,25 @@ export default class App extends Component {
         else return true;
     });
     this.setState({cartItems : newCartItems});
+  }
 
-}
+  toggleCart(){
+    this.setState({cartOpen : !this.state.cartOpen});
+  }
 
   render() {
     return (
       <div className='app-container'>
-        <Logo />
+        <Header toggleCart={this.toggleCart}/>
         <Router>
           <Route path='/' exact>
-            <MenuItems addToCart={this.addToCart} />
+            <div className='main-container'>
+            <MenuItems addToCart={this.addToCart}
+                       cartOpen={this.state.cartOpen} />
             <Cart items={this.state.cartItems}
-                  removeItem={this.removeItemFromCart}/>
+                  removeItem={this.removeItemFromCart}
+                  cartOpen={this.state.cartOpen}/>
+            </div>      
           </Route>
           <Route path='/order' component={OrderPreview} />
         </Router>

@@ -10,7 +10,7 @@ export default function MenuItem(props) {
    
     return (
         <li className='menu-item' style={style}>
-            <h3>{props.item.name} </h3>
+            <h2>{props.item.name} </h2>
             <h3>{props.item.price} €</h3>
             <button onClick={props.addToCart.bind(this, props.item)} className='menu-item-add-btn'>+</button>
         </li>

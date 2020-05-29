@@ -2,14 +2,13 @@ import React from 'react'
 
 export default function CartItem(props) {
     return (
-        <li>
-            <h4>Cart item</h4>
+        <li className='cart-item'>
+            <div className='cart-item-des'>
+            <h2>{props.item.name} x{props.item.quantity}</h2>
+            <h3>{props.item.price} €</h3>
+            <button onClick={props.removeItem.bind(this, props.item)} className='remove-btn'>REMOVE</button>
+            </div>
             <hr></hr>
-            <h2>{props.item.name}</h2>
-            <h2>{props.item.price}</h2>
-            <h2>Quantity : {props.item.quantity}x</h2>
-            <hr></hr>
-            <button onClick={props.removeItem.bind(this, props.item)}>Remove</button>
         </li>
     )
 }

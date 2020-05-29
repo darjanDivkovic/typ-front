@@ -7,7 +7,8 @@ export default function Header(props) {
     return (
         <div className='header-container'>
             <Logo />
-            <CartButton toggleCart={props.toggleCart}/>
+            <CartButton toggleCart={props.toggleCart}
+                        newInCart={props.newInCart}/>
         </div>
     )
 }

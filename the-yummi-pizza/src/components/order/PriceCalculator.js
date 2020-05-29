@@ -8,7 +8,7 @@ export default function PriceCalculator(props) {
         <p>(delivery)</p>
         <hr className='hr-style' />
         
-        <h1>PRICE: {props.calculatePrice()}  €</h1>
+        <h1>TOTAL: {props.calculatePrice()}  €</h1>
         </div>
     )
 }

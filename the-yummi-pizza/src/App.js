@@ -16,6 +16,7 @@ export default class App extends Component {
     super(props);
     this.state = {
       cartItems : [],
+      newInCart : 0,
       cartOpen : false,
     }
     this.addToCart = this.addToCart.bind(this);
@@ -33,8 +34,7 @@ export default class App extends Component {
     if(!found){
       
       item.quantity = 1;
-      console.log(item);
-      let newCartItems = oldCartItems.concat(item);
+            let newCartItems = oldCartItems.concat(item);
       this.setState({cartItems : newCartItems});
 
     }
@@ -48,9 +48,9 @@ export default class App extends Component {
           else return cartItem;
       });
 
-      console.log(newCartItems);
       this.setState({oldCartItems : newCartItems});
     }
+    this.notifyCart();
     
   }
 
@@ -65,12 +65,21 @@ export default class App extends Component {
 
   toggleCart(){
     this.setState({cartOpen : !this.state.cartOpen});
+    this.setState({newInCart : 0});
+  }
+
+  notifyCart(){
+    let cartOpen = this.state.cartOpen;
+    if(!cartOpen) {
+      this.setState({newCartItems : this.state.newInCart++});
+    }
   }
 
   render() {
     return (
       <div className='app-container'>
-        <Header toggleCart={this.toggleCart}/>
+        <Header toggleCart={this.toggleCart}
+                newInCart={this.state.newInCart}/>
         <Router>
           <Route path='/' exact>
             <div className='main-container'>

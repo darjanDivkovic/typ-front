@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css';
-import nextId from "react-id-generator";
 
 import Header from './components/design/Header';
 import MenuItems from './components/menu/MenuItems';
@@ -75,6 +74,11 @@ export default class App extends Component {
     }
   }
 
+  incQuantity(item){
+    console.log('clicked');
+
+  }
+
   render() {
     return (
       <div className='app-container'>
@@ -87,7 +91,8 @@ export default class App extends Component {
                        cartOpen={this.state.cartOpen} />
             <Cart items={this.state.cartItems}
                   removeItem={this.removeItemFromCart}
-                  cartOpen={this.state.cartOpen}/>
+                  cartOpen={this.state.cartOpen}
+                  incQuantity={this.incQuantity}/>
             </div>      
           </Route>
           <Route path='/order' component={OrderPreview} />

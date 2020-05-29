@@ -5,7 +5,7 @@ export default function QuantityPicker(props) {
         <div className='quantity-picker-container'>
             <button className='qp-buttons'>-</button>
             <div>{props.quantity}</div>
-            <button className='qp-buttons'>+</button>
+            <button onClick={props.incQuantity.bind(this, props.itemId)} className='qp-buttons'>+</button>
         </div>
     )
 }

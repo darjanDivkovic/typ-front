@@ -29,7 +29,9 @@ export default class Cart extends Component {
                         this.props.items.map(cartItem => 
                              <CartItem key={cartItem.id}
                                        item={cartItem}
-                                       removeItem={this.props.removeItem}/>)
+                                       removeItem={this.props.removeItem}
+                                       incQuantity={this.props.incQuantity}/>
+                                       )
                     }
                 </ul>
                 </div>

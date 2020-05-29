@@ -57,7 +57,7 @@ export default class OrderView extends Component {
                 </div>
                 </div>
                 <div className='contact-container'>
-                    <h1>Contact & other info</h1>
+                    <h3>Contact & other info</h3>
                 </div>
                 
             </div>

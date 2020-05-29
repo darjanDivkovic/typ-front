@@ -1,9 +1,88 @@
-ul {
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.app-container {
+  margin: 0;
+  padding: 0;
+  font-family: 'Varela Round', sans-serif;
+  background-color: #F8F8F8;
+}
+
+.logo-container {
+  margin-top: 100px;
+  margin-left: 40px;
+  border-radius: 50px;
+  width: 90%;
+  height: 70px;
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 32px 49px -4px rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 120px;
+  transition: 2s;
+  border-radius: 50%;
+}
+
+.logo:hover {
+  transform: rotate(360deg);
+}
+
+.logo-text {
+  margin-left: 30px;
+  font-size: 40px;
+}
+
+.menu-container {
+  width: 80%;
+  margin-top: 80px;
+  margin-left: 130px;
+
+}
+
+.menu-item {
+
+  padding: 20px 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  background-size: cover ;
+  box-shadow: 10px 10px 49px -4px rgba(0,0,0,0.45);
+  transition: 0.5s;
+}
+
+.menu-item:hover {
+  transform: scale(1.2);
+}
+
+
+.menu-item-add-btn {
+  margin-top: 50px;
+}
+
+.menu-item button {
+  width: 50px;
+  height: 50px;
+  margin-top: 100px;
+  margin-left: 140px;
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 5px 5px 49px -4px rgba(0,0,0,0.75);
+  cursor: pointer;
+  outline: none;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
 }
 
 ul li {
   list-style: none;
   margin-right: 70px;
+  width: 180px;
+  height: 250px;
 }

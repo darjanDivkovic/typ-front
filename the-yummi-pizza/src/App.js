@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import './App.css';
 import nextId from "react-id-generator";
 
-
+import Logo from './components/design/Logo';
 import MenuItems from './components/menu/MenuItems';
 import Cart from './components/cart/Cart';
 import OrderPreview from './components/order/OrderView';
@@ -26,7 +26,7 @@ export default class App extends Component {
     // Find 
     let oldCartItems = this.state.cartItems;
     let found = oldCartItems.some( items => items.id === item.id );
-    
+
     // Not found
     if(!found){
       
@@ -64,8 +64,8 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>The Yummi pizza!</h1>
+      <div className='app-container'>
+        <Logo />
         <Router>
           <Route path='/' exact>
             <MenuItems addToCart={this.addToCart} />

@@ -1,15 +1,19 @@
 import React from 'react'
 
+
 export default function MenuItem(props) {
+
+    const style = {
+        backgroundImage : `url(${props.item.img_path})`,
+        backgroundPosition : 'right',
+    }
+   
     return (
-        <li>
-            <h2>menu item</h2>
-            <hr></hr>
-            <h3>{props.item.name}</h3>
-            <h3>{props.item.price}</h3>
-            <button onClick={props.addToCart.bind(this, props.item)}>Add to cart</button>
-            <hr></hr>
+        <li className='menu-item' style={style}>
+            <h3>{props.item.name} </h3>
+            <h3>{props.item.price} €</h3>
+            <button onClick={props.addToCart.bind(this, props.item)} className='menu-item-add-btn'>+</button>
         </li>
     )
+    
 }
-

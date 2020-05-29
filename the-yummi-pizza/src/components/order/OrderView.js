@@ -37,14 +37,29 @@ export default class OrderView extends Component {
 
         return (
             <div className='order-container'>
-                <h1>Order Preview</h1>
+                <Link className='back-to-menu-btn' to='/'>
+                    <button>To Menu</button>
+                </Link>
+                <div className='order-preview'>
+                <h2>Order Preview</h2>
+                <div className='preview-items-container'>
                 <ul>
                     {orderItems}
                 </ul>
-                <h1>FINAL PRICE: {this.calculatePrice()} E</h1>
-                <Link to='/'>
-                    <button>Back to menu</button>
-                </Link>
+                </div>
+                <div className='calculating-price-div'>
+                <hr style={{width : '90%', marginRight : '0'}}></hr>
+                <h3>+ 2  €</h3>
+                <p>(delivery)</p>
+                <hr style={{width : '90%', marginRight : '0'}}></hr>
+                
+                <h1>PRICE: {this.calculatePrice()+2}  €</h1>
+                </div>
+                </div>
+                <div className='contact-container'>
+                    <h1>Contact & other info</h1>
+                </div>
+                
             </div>
         )
     }

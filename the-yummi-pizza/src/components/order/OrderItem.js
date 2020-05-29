@@ -2,11 +2,12 @@ import React from 'react'
 
 export default function OrderItem(props) {
     return (
-        <li>
-            <h3>preview item</h3>
+        <li className='item-preview'>
+            <img src={props.item.img_path}></img>
             <h2>{props.item.name}</h2>
-            <h2>{props.item.price}</h2>
-            <h2>Quantity : {props.item.quantity}x</h2>
+            <h4>{props.item.price} €</h4>
+            <h2>X{props.item.quantity}</h2>
+            <h4 className='finaly'>Finaly: {props.item.price * props.item.quantity}  €</h4>
         </li>
     )
 }

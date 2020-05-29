@@ -36,7 +36,7 @@ export default class OrderView extends Component {
         }
 
         return (
-            <div>
+            <div className='order-container'>
                 <h1>Order Preview</h1>
                 <ul>
                     {orderItems}

@@ -5,6 +5,7 @@
   padding: 0;
   font-family: 'Varela Round', sans-serif;
   background-color: #F8F8F8;
+  overflow: hidden;
 }
 
 .header-container {
@@ -39,7 +40,7 @@
   font-size: 40px;
 }
 
-.cart-button {
+.cart-button-container {
   margin-left: auto;
   margin-right: 60px;
 }
@@ -108,7 +109,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 200px;
 }
 
 .cart-item {
@@ -128,12 +129,18 @@ li {
 .remove-btn {
   border-radius: 8px;
   width: 80px;
-  height: 40px;
-  background-color: #d9534f;
-  color: white;
+  height: 30px;
+  border: 2px solid #d9534f;
   font-weight: bold;
-  border: none;
+  background-color: #ffffff;
+  color: #d9534f;
   margin: -30px 10px 10px 150px;
+  transition: 0.5s;
+}
+
+.remove-btn:hover {
+  background-color: #d9534f;
+  color: #ffffff;
 }
 
 .main-container {
@@ -141,7 +148,23 @@ li {
 }
 
 .preview-order-btn {
+  position: absolute;
+  width: 200px;
+  height: 40px;
+  border-radius: 8px;
+  border: 3px solid	#0275d8;
+  background-color: #ffffff;
+  color: #0275d8;
+  font-size: 14px;
+  font-weight: bold;
+  bottom: 20px;
+  left: 50px;
+  transition: 0.5s;
+}
 
+.preview-order-btn:hover {
+  background-color: #0275d8;
+  color: #ffffff;
 }
 
 .cart-container {
@@ -151,8 +174,6 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: scroll;
-  overflow-x: hidden;
   margin-left: 400px;
   transition: 1s;
   margin-top: 50px;
@@ -161,24 +182,47 @@ li {
   box-shadow: -4px -1px 46px -14px rgba(0,0,0,0.45);
 }
 
+.cart-items-container {
+  overflow: scroll;
+  overflow-x: hidden;
+  max-height: 450px;
+}
+
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 7px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   box-shadow: inset 0 0 5px grey;
+  border-radius: 7px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: rgb(216, 215, 215);
-  border: 1px solid grey;
+  background: #ffffff;
   border-radius: 10px;
+  border: 1px solid grey;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.empty-msg {
+  margin-left: 20px;
+  color: #555;
+}
+
+.cart-button {
+  background-image: url('./res/cart.jpg');
+  background-size: cover;
+  border: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
 }

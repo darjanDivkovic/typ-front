@@ -6,9 +6,8 @@ export default function CartItem(props) {
             <div className='cart-item-des'>
             <h2>{props.item.name} x{props.item.quantity}</h2>
             <h3>{props.item.price} €</h3>
-            <button onClick={props.removeItem.bind(this, props.item)} className='remove-btn'>REMOVE</button>
+            <button onClick={props.removeItem.bind(this, props.item)} className='remove-btn'>Remove</button>
             </div>
-            <hr></hr>
         </li>
     )
 }

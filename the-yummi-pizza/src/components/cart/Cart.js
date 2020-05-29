@@ -9,13 +9,20 @@ export default class Cart extends Component {
     }
 
     render() {
+        let msg = null;
+        if(this.props.items.length === 0){
+            msg = <p className='empty-msg'>Cart is currently empty, add more items to view them here!</p>;
+        } 
+
         let style;
-        if(this.props.cartOpen) style = { marginLeft: '10px' }
+        if(this.props.cartOpen) style = { marginLeft: '0px' }
         else style = { marginLeft : '400px'};
 
         return (
             <div className='cart-container' style={style}>
                 <h2>SHOPPING CART</h2>
+                {msg}
+                <div className='cart-items-container'>
                 <ul className='cart-items'>
                     {
                         this.props.items.map(cartItem => 
@@ -24,6 +31,7 @@ export default class Cart extends Component {
                                        removeItem={this.props.removeItem}/>)
                     }
                 </ul>
+                </div>
                 <Link to={{
                     pathname : '/order',
                     items : this.props.items,

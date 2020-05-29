@@ -21,6 +21,7 @@ export default class Cart extends Component {
         return (
             <div className='cart-container' style={style}>
                 <h2>SHOPPING CART</h2>
+                <hr className='hr-style-cart'/>
                 {msg}
                 <div className='cart-items-container'>
                 <ul className='cart-items'>

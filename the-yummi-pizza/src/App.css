@@ -134,7 +134,7 @@ li {
   font-weight: bold;
   background-color: #ffffff;
   color: #d9534f;
-  margin: -30px 10px 10px 150px;
+  margin: 0px 10px 0px 150px;
   transition: 0.5s;
 }
 
@@ -255,7 +255,7 @@ li {
 }
 
 .preview-items-container {
-  max-height: 380px;
+  max-height: 350px;
   overflow: scroll;
   overflow-x: hidden;
   margin-left: 30px;
@@ -309,4 +309,14 @@ li {
 
 .back-to-menu-btn button:hover {
   transform: scale(1.2);
+}
+
+.hr-style {
+  width: 90%;
+  margin-right: 0;
+}
+
+.hr-style-cart {
+  width: 90%;
+  margin-right: 10px;
 }

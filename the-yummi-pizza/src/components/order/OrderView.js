@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import OrderItem from './OrderItem';
 import PriceCalculator from './PriceCalculator';
+import OrderDetails from './OrderDetails';
 
 export default class OrderView extends Component {
     constructor(props){
@@ -54,10 +55,7 @@ export default class OrderView extends Component {
                 </div>
                 {priceCalculator}
                 </div>
-                <div className='contact-container'>
-                    <h3>Contact & other info</h3>
-                </div>
-                
+                <OrderDetails />
             </div>
         )
     }

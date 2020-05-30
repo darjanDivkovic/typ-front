@@ -30,7 +30,7 @@ export default class OrderView extends Component {
     }
 
     render() {
-        let priceCalculator = <p style='price-calc-empty'>Add items to cart to view them here!</p>;
+        let priceCalculator = <p>Add items to cart to view them here!</p>;
         let orderItems;
         if(this.state.orderItems.length !== 0){
             orderItems = this.state.orderItems.map(item => <OrderItem 

@@ -11,7 +11,7 @@ export default function CartItem(props) {
                 <div className='cart-item-options-container'>
             <QuantityPicker quantity={props.item.quantity}
                             itemId={props.item.id}
-                            incQuantity={props.incQuantity}/>
+                            changeQuantity={props.changeQuantity}/>
             <button onClick={props.removeItem.bind(this, props.item)} className='remove-btn'>Remove</button>
             </div>
             <hr className='hr-style-cart'/>

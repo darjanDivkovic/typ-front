@@ -21,6 +21,7 @@ export default class App extends Component {
     this.addToCart = this.addToCart.bind(this);
     this.removeItemFromCart = this.removeItemFromCart.bind(this);
     this.toggleCart = this.toggleCart.bind(this);
+    this.changeQuantity = this.changeQuantity.bind(this);
   }
 
   addToCart(item){
@@ -74,9 +75,17 @@ export default class App extends Component {
     }
   }
 
-  incQuantity(item){
-    console.log('clicked');
-
+  changeQuantity(itemId, change){
+    console.log(change);
+    let newCartItems = this.state.cartItems.map(cartItem => {
+      if(cartItem.id === itemId){
+        if(change === 'inc') cartItem.quantity++;
+        if(change === 'dec' && cartItem.quantity !== 1) cartItem.quantity--;
+        return cartItem;
+      }
+      else return cartItem;
+    });
+    this.setState({cartItem : newCartItems});
   }
 
   render() {
@@ -92,7 +101,7 @@ export default class App extends Component {
             <Cart items={this.state.cartItems}
                   removeItem={this.removeItemFromCart}
                   cartOpen={this.state.cartOpen}
-                  incQuantity={this.incQuantity}/>
+                  changeQuantity={this.changeQuantity}/>
             </div>      
           </Route>
           <Route path='/order' component={OrderPreview} />

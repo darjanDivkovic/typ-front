@@ -30,7 +30,7 @@ export default class Cart extends Component {
                              <CartItem key={cartItem.id}
                                        item={cartItem}
                                        removeItem={this.props.removeItem}
-                                       incQuantity={this.props.incQuantity}/>
+                                       changeQuantity={this.props.changeQuantity}/>
                                        )
                     }
                 </ul>

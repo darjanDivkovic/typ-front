@@ -3,7 +3,7 @@ import React from 'react'
 export default function OrderItem(props) {
     return (
         <li className='item-preview'>
-            <img src={props.item.img_path}></img>
+            <img src={props.item.img_path} alt='a'></img>
             <h2>{props.item.name}</h2>
             <h4>{props.item.price} €</h4>
             <h2>X{props.item.quantity}</h2>

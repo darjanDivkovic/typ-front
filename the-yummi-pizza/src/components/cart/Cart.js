@@ -4,9 +4,6 @@ import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
 
 export default class Cart extends Component {
-    constructor(props){
-        super(props);
-    }
 
     render() {
         let msg = null;

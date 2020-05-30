@@ -48,7 +48,7 @@ export default class App extends Component {
           else return cartItem;
       });
 
-      this.setState({oldCartItems : newCartItems});
+      this.setState({cartItem : newCartItems});
     }
     this.notifyCart();
     
@@ -71,8 +71,10 @@ export default class App extends Component {
   notifyCart(){
     let cartOpen = this.state.cartOpen;
     if(!cartOpen) {
-      this.setState({newCartItems : this.state.newInCart++});
+      let newInCart = this.state.newInCart++;
+      this.setState({newCartItems : newInCart});
     }
+    
   }
 
   changeQuantity(itemId, change){

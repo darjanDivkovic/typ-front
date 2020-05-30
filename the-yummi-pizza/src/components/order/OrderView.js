@@ -31,14 +31,17 @@ export default class OrderView extends Component {
     }
 
     render() {
-        let priceCalculator = <p>Add items to cart to view them here!</p>;
+        let priceCalculator = <p style={{marginLeft : '40px'}}>Add items to cart to view them here!</p>;
         let orderItems;
+        let orderDetails = null;
         if(this.state.orderItems.length !== 0){
             orderItems = this.state.orderItems.map(item => <OrderItem 
                                                             key={item.id}
                                                             item={item}
                                                             />);
             priceCalculator = <PriceCalculator calculatePrice={this.calculatePrice}/>;
+            orderDetails = <OrderDetails items={this.state.orderItems}
+                                         bill={this.calculatePrice()}/>;
         }
 
         return (
@@ -55,7 +58,7 @@ export default class OrderView extends Component {
                 </div>
                 {priceCalculator}
                 </div>
-                <OrderDetails />
+                {orderDetails}
             </div>
         )
     }
